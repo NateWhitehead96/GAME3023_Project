@@ -1,0 +1,1198 @@
+fileFormatVersion: 2
+guid: 64549f150c966b4409694000017b6dbe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6050151206826422223
+    second: sableye_0
+  - first:
+      213: -2327604620748715422
+    second: sableye_1
+  - first:
+      213: -7662726107241866805
+    second: sableye_2
+  - first:
+      213: 2287676764409489817
+    second: sableye_3
+  - first:
+      213: 646261312548879061
+    second: sableye_4
+  - first:
+      213: 8633492444904081776
+    second: sableye_5
+  - first:
+      213: 8371753419190665275
+    second: sableye_6
+  - first:
+      213: -2064517351144520232
+    second: sableye_7
+  - first:
+      213: 2981772900789915814
+    second: sableye_8
+  - first:
+      213: -6286816730500803772
+    second: sableye_9
+  - first:
+      213: -8759419464163096213
+    second: sableye_10
+  - first:
+      213: 3918974830124020002
+    second: sableye_11
+  - first:
+      213: -5256594781720579553
+    second: sableye_12
+  - first:
+      213: 5646345035102691977
+    second: sableye_13
+  - first:
+      213: 4810767028111471183
+    second: sableye_14
+  - first:
+      213: 4211892996729614964
+    second: sableye_15
+  - first:
+      213: 1839421864403639513
+    second: sableye_16
+  - first:
+      213: 8699438868302429026
+    second: sableye_17
+  - first:
+      213: 3415611743911491036
+    second: sableye_18
+  - first:
+      213: 4423174907717848222
+    second: sableye_19
+  - first:
+      213: -7923132779065490627
+    second: sableye_20
+  - first:
+      213: -2498793030331989443
+    second: sableye_21
+  - first:
+      213: -2241310335222003932
+    second: sableye_22
+  - first:
+      213: -6279001234696355969
+    second: sableye_23
+  - first:
+      213: -4517979533031830788
+    second: sableye_24
+  - first:
+      213: -4975848832698285370
+    second: sableye_25
+  - first:
+      213: -7934088288827264769
+    second: sableye_26
+  - first:
+      213: -6672041036576162819
+    second: sableye_27
+  - first:
+      213: -2477741989868758823
+    second: sableye_28
+  - first:
+      213: -3387288699736177930
+    second: sableye_29
+  - first:
+      213: -7275628213435309476
+    second: sableye_30
+  - first:
+      213: 2435455694500526261
+    second: sableye_31
+  - first:
+      213: 1278425322612862920
+    second: sableye_32
+  - first:
+      213: -3668806483897636513
+    second: sableye_33
+  - first:
+      213: 7784160355462727801
+    second: sableye_34
+  - first:
+      213: -6229159536806886894
+    second: sableye_35
+  - first:
+      213: -3504622702475347437
+    second: sableye_36
+  - first:
+      213: 9022869704402966590
+    second: sableye_37
+  - first:
+      213: -6387734618262305370
+    second: sableye_38
+  - first:
+      213: -7823310074762753961
+    second: sableye_0
+  - first:
+      213: 2300869743428689180
+    second: sableye_1
+  - first:
+      213: -9015714223344612520
+    second: sableye_2
+  - first:
+      213: 7479005014688470963
+    second: sableye_3
+  - first:
+      213: -7094177727661427448
+    second: sableye_4
+  - first:
+      213: 7532766284473294113
+    second: sableye_5
+  - first:
+      213: 8459175506692585367
+    second: sableye_6
+  - first:
+      213: -1385941395461501557
+    second: sableye_7
+  - first:
+      213: -1904106400378718962
+    second: sableye_8
+  - first:
+      213: 2158294825014450240
+    second: sableye_9
+  - first:
+      213: 6840982257352694418
+    second: sableye_10
+  - first:
+      213: 8917363906820682905
+    second: sableye_11
+  - first:
+      213: -8885527803575912879
+    second: sableye_12
+  - first:
+      213: -7111336463624595999
+    second: sableye_13
+  - first:
+      213: 2495047296837495440
+    second: sableye_14
+  - first:
+      213: -1589090391466305995
+    second: sableye_15
+  - first:
+      213: 1347210194086982489
+    second: sableye_16
+  - first:
+      213: -6069430659060971986
+    second: sableye_17
+  - first:
+      213: 2821798736314008375
+    second: sableye_18
+  - first:
+      213: 6007035352147221027
+    second: sableye_19
+  - first:
+      213: -2481267251364181549
+    second: sableye_20
+  - first:
+      213: 6151659655414358313
+    second: sableye_21
+  - first:
+      213: 7685825537214143652
+    second: sableye_22
+  - first:
+      213: 27633413633982813
+    second: sableye_23
+  - first:
+      213: -8104283372213030946
+    second: sableye_24
+  - first:
+      213: 4503502355373936856
+    second: sableye_25
+  - first:
+      213: -1343635542060821213
+    second: sableye_26
+  - first:
+      213: 2459706889209156379
+    second: sableye_27
+  - first:
+      213: -1758398701105849370
+    second: sableye_28
+  - first:
+      213: -5076613084304682887
+    second: sableye_29
+  - first:
+      213: -3317870801498753774
+    second: sableye_30
+  - first:
+      213: -6164909750001396908
+    second: sableye_31
+  - first:
+      213: -4173591701450981054
+    second: sableye_32
+  - first:
+      213: 8892270205700125354
+    second: sableye_33
+  - first:
+      213: 6474329389942173911
+    second: sableye_34
+  - first:
+      213: -1879189649528976348
+    second: sableye_35
+  - first:
+      213: -8064301145029190042
+    second: sableye_36
+  - first:
+      213: -5777412878542315607
+    second: sableye_37
+  - first:
+      213: 7592923736222714017
+    second: sableye_38
+  - first:
+      213: -3841963470292104811
+    second: sableye_39
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sableye_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758080acfe40e6390800000000000000
+      internalID: -7823310074762753961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 40
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1dd28357d45eef10800000000000000
+      internalID: 2300869743428689180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_2
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 40
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b8b116eafb1e280800000000000000
+      internalID: -9015714223344612520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 36
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b71fd57f63cac760800000000000000
+      internalID: 7479005014688470963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_4
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 36
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805b04971fa6c8d90800000000000000
+      internalID: -7094177727661427448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_5
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 34
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12dd1128603c98860800000000000000
+      internalID: 7532766284473294113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_6
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 36
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 797b8110e47056570800000000000000
+      internalID: 8459175506692585367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_7
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 36
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d0204d4a524cce0800000000000000
+      internalID: -1385941395461501557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_8
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 36
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e05f0e631514395e0800000000000000
+      internalID: -1904106400378718962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_9
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 40
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 048dc8d45bdc3fd10800000000000000
+      internalID: 2158294825014450240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_10
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 40
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29ad1443e1d00fe50800000000000000
+      internalID: 6840982257352694418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 42
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 994bfee1a37d0cb70800000000000000
+      internalID: 8917363906820682905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_12
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 42
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156300a4a8340b480800000000000000
+      internalID: -8885527803575912879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_13
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 40
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e59f5fe9257f4d90800000000000000
+      internalID: -7111336463624595999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_14
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 40
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a2cc11c4030a220800000000000000
+      internalID: 2495047296837495440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_15
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 40
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5361aa455ba62f9e0800000000000000
+      internalID: -1589090391466305995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_16
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 40
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 953f650a88042b210800000000000000
+      internalID: 1347210194086982489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_17
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 42
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e264ec909fc05cba0800000000000000
+      internalID: -6069430659060971986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_18
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 36
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73384a9000b092720800000000000000
+      internalID: 2821798736314008375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_19
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 36
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ad2fd73d64d5350800000000000000
+      internalID: 6007035352147221027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_20
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 4
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d9c0a9c494c09dd0800000000000000
+      internalID: -2481267251364181549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_21
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 4
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 921231c1dd51f5550800000000000000
+      internalID: 6151659655414358313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_22
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 4
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ac5647da9989aa60800000000000000
+      internalID: 7685825537214143652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_23
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 2
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d51c59b717c226000800000000000000
+      internalID: 27633413633982813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_24
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 1
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf2328163dc78f80800000000000000
+      internalID: -8104283372213030946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_25
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 7
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d0d2391887af7e30800000000000000
+      internalID: 4503502355373936856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_26
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 0
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32510e7e7927a5de0800000000000000
+      internalID: -1343635542060821213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_27
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 7
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1394e63262a22220800000000000000
+      internalID: 2459706889209156379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_28
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ebd31f92b9e897e0800000000000000
+      internalID: -1758398701105849370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_29
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 4
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9705beffb4f3c89b0800000000000000
+      internalID: -5076613084304682887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_30
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 1
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 215b60ab51e84f1d0800000000000000
+      internalID: -3317870801498753774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_31
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 5
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45313d6de37d17aa0800000000000000
+      internalID: -6164909750001396908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_32
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 3
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2410f7dc57c6416c0800000000000000
+      internalID: -4173591701450981054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_33
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 3
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa2bb8983a0b76b70800000000000000
+      internalID: 8892270205700125354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_34
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 6
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d0ff56174079d950800000000000000
+      internalID: 6474329389942173911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_35
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 6
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c0c3a58f6cbe5e0800000000000000
+      internalID: -1879189649528976348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_36
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 7
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e52c8c5d8d51090800000000000000
+      internalID: -8064301145029190042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_37
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 7
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9afd7b5d89182dfa0800000000000000
+      internalID: -5777412878542315607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sableye_38
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 6
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a8cf28b8eb7f5960800000000000000
+      internalID: 7592923736222714017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

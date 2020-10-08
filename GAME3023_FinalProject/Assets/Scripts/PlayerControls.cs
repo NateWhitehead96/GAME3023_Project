@@ -18,11 +18,34 @@ public class PlayerControls : MonoBehaviour
     void Update()
     {
         // Easy movement using Axis Input
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        //float x = Input.GetAxis("Horizontal");
+        //float y = Input.GetAxis("Vertical");
 
-        Vector2 movementVector = new Vector2(x, y);
-        movementVector *= speed;
-        rigidbody.velocity = movementVector; // Now using rigidbody for movement
+        //Vector2 movementVector = new Vector2(x, y);
+        //movementVector *= speed;
+        //rigidbody.velocity = movementVector; // Now using rigidbody for movement
+
+        Movement();
+    }
+
+
+    private void Movement()
+    {
+        if(Input.GetKey("w"))// going up
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime, transform.position.z);
+        }
+        else if (Input.GetKey("s"))// going down
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, transform.position.z);
+        }
+        else if (Input.GetKey("a"))// going left
+        {
+            transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
+        }
+        else if (Input.GetKey("d"))// going right
+        {
+            transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
+        }
     }
 }
