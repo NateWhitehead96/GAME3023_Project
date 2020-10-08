@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 176722565
+    locked: 0
+  - name: Foreground
+    uniqueID: 1354217317
+    locked: 0
+  - name: HardCollider
+    uniqueID: 225426903
+    locked: 0
+  - name: SoftCollider
+    uniqueID: 2591494207
+    locked: 0
