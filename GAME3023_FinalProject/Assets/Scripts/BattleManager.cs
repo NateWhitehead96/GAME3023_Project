@@ -27,6 +27,10 @@ public class BattleManager : MonoBehaviour
 
     // UI variables
     public Text dialogueText;
+    public Button ability1;
+    public Button ability2;
+    public Button ability3;
+    public Button ability4;
     
 
     // Start is called before the first frame update
@@ -38,6 +42,8 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator StartBattle()
     {
+        // LOAD ALL DATA
+        player.GetComponent<BattleAttributes>().SetAttributes("Player", "1", 20, 14, 100, 25); // use this setter first before assigning
         playerAttributes = player.GetComponent<BattleAttributes>();
         enemyAttributes = enemy.GetComponent<BattleAttributes>();
 
@@ -59,10 +65,12 @@ public class BattleManager : MonoBehaviour
         if(playerAttributes.level == "1")
         {
             // then only allow 1 button to be visible and so on
+            ability3.gameObject.SetActive(false);
+            ability4.gameObject.SetActive(false);
         }
     }
 
-    public void ButtonOne()
+    public void ButtonOne() // ability 1
     {
         dialogueText.text = "You attempt to flee!";
         if (state == BattleState.PLAYERTURN)
@@ -73,7 +81,7 @@ public class BattleManager : MonoBehaviour
             return;
     }
 
-    public void ButtonTwo()
+    public void ButtonTwo() // attack 1
     {
         dialogueText.text = "You slapped the enemy! OUCH!";
         if (state == BattleState.PLAYERTURN)
@@ -84,7 +92,7 @@ public class BattleManager : MonoBehaviour
             return;
     }
 
-    public void ButtonThree()
+    public void ButtonThree() // ability 3 unlocked at level 2
     {
         dialogueText.text = "You slapped the enemy! OUCH!";
         if (state == BattleState.PLAYERTURN)
@@ -95,7 +103,7 @@ public class BattleManager : MonoBehaviour
             return;
     }
 
-    public void ButtonFour()
+    public void ButtonFour() // ability 4 unlocked at level 3
     {
         dialogueText.text = "You slapped the enemy! OUCH!";
         if (state == BattleState.PLAYERTURN)
@@ -153,6 +161,7 @@ public class BattleManager : MonoBehaviour
             dialogueText.text = "You defeated the enemy! You gained 25 experience points!";
             playerAttributes.currentExp += 25;
             playerUI.SetExp(playerAttributes.currentExp);
+            // SAVE ALL DATA HERE
         }
         else if (state == BattleState.LOSE)
         {

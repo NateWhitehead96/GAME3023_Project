@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -21,14 +22,6 @@ public class PlayerControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Easy movement using Axis Input
-        //float x = Input.GetAxis("Horizontal");
-        //float y = Input.GetAxis("Vertical");
-
-        //Vector2 movementVector = new Vector2(x, y);
-        //movementVector *= speed;
-        //rigidbody.velocity = movementVector; // Now using rigidbody for movement
-
         Movement();
     }
 
@@ -67,48 +60,18 @@ public class PlayerControls : MonoBehaviour
         {
             animator.SetBool("isWalking", false);
         }
+    }
 
-        //if(Input.GetKey("w"))// going up
-        //{
-        //    isMoving = true;
-        //    transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime, transform.position.z);
-        //    if(isMoving)
-        //    {
-        //        animator.SetInteger("AnimState", 1);
-        //    }
-        //}
-        //else if (Input.GetKey("s"))// going down
-        //{
-        //    isMoving = true;
-        //    transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, transform.position.z);
-        //    if (isMoving)
-        //    {
-        //        animator.SetInteger("AnimState", 3);
-        //    }
-        //}
-        //else if (Input.GetKey("a"))// going left
-        //{
-        //    isMoving = true;
-        //    transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
-        //    if (isMoving)
-        //    {
-        //        animator.SetInteger("AnimState", 4);
-        //    }
-        //}
-        //else if (Input.GetKey("d"))// going right
-        //{
-        //    isMoving = true;
-        //    transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
-        //    if (isMoving)
-        //    {
-        //        animator.SetInteger("AnimState", 2);
-        //    }
-        //}
-        //else
-        //{
-        //    isMoving = false;
-        //    animator.SetInteger("AnimState", 0);
-
-        //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("BattlePossible"))
+        {
+            int encounterChance = Random.Range(0, 3);
+            Debug.Log(encounterChance);
+            if(encounterChance == 0)
+            {
+                SceneManager.LoadScene("BattleScene");
+            }
+        }
     }
 }
