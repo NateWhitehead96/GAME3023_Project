@@ -16,6 +16,9 @@ public class BattleManager : MonoBehaviour
 {
     public BattleState state;
 
+    public Animator playerAnimator;
+    public Animator enemyAnimator;
+
     public GameObject player;
     public GameObject enemy;
 
@@ -31,7 +34,9 @@ public class BattleManager : MonoBehaviour
     public Button ability2;
     public Button ability3;
     public Button ability4;
-    
+
+    public bool burn = false;
+    public bool counter = false;
 
     // Start is called before the first frame update
     void Start()
@@ -65,8 +70,8 @@ public class BattleManager : MonoBehaviour
         if(playerAttributes.level == "1")
         {
             // then only allow 1 button to be visible and so on
-            ability3.gameObject.SetActive(false);
-            ability4.gameObject.SetActive(false);
+            //ability3.gameObject.SetActive(false);
+            //ability4.gameObject.SetActive(false);
         }
     }
 
@@ -94,10 +99,10 @@ public class BattleManager : MonoBehaviour
 
     public void ButtonThree() // ability 3 unlocked at level 2
     {
-        dialogueText.text = "You slapped the enemy! OUCH!";
+        dialogueText.text = "You burned the enemy!";
         if (state == BattleState.PLAYERTURN)
         {
-            StartCoroutine(PlayerSlap());
+            StartCoroutine(Burn());
         }
         else
             return;
@@ -105,10 +110,10 @@ public class BattleManager : MonoBehaviour
 
     public void ButtonFour() // ability 4 unlocked at level 3
     {
-        dialogueText.text = "You slapped the enemy! OUCH!";
+        dialogueText.text = "You prepare to take a hit!";
         if (state == BattleState.PLAYERTURN)
         {
-            StartCoroutine(PlayerSlap());
+            StartCoroutine(Counter());
         }
         else
             return;
@@ -154,6 +159,44 @@ public class BattleManager : MonoBehaviour
 
     }
 
+    IEnumerator Burn()
+    {
+        yield return new WaitForSeconds(2f);
+
+        burn = true;
+        state = BattleState.ENEMYTURN;
+        EnemyTurn();
+    }
+
+    IEnumerator Counter()
+    {
+        yield return new WaitForSeconds(2f);
+
+        int counterChance = Random.Range(0, 10);
+        if (counterChance > 6)
+        {
+            counter = true;
+            dialogueText.text = "You have blocked the attack!";
+            yield return new WaitForSeconds(2f);
+            int damageChance = Random.Range(0, 10);
+            if (damageChance > 5)
+            { 
+                dialogueText.text = "You returned the attack and dealt damage!";
+                yield return new WaitForSeconds(2f);
+                enemyAttributes.currentHealth -= 5; // the enemy now takes damage
+                enemyUI.SetHP(enemyAttributes.currentHealth);
+            }
+        }
+        else
+        {
+            counter = false;
+            dialogueText.text = "You failed to block the attack!";
+            yield return new WaitForSeconds(2f);
+        }
+        state = BattleState.ENEMYTURN;
+        EnemyTurn();
+    }
+
     IEnumerator EndBattle()
     {
         if (state == BattleState.WIN)
@@ -179,8 +222,17 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator EnemyAttack()
     {
-        dialogueText.text = enemyAttributes.name + " uses an ability.";
         // do health changes and check if player is alive or dead
+
+        if (counter == false)
+        {
+            dialogueText.text = enemyAttributes.name + " uses an ability.";
+            yield return new WaitForSeconds(2f);
+            dialogueText.text = "You got hit!";
+            yield return new WaitForSeconds(2f);
+            playerAttributes.currentHealth -= 5; // the player now takes damage
+            playerUI.SetHP(playerAttributes.currentHealth);
+        }
         if (playerAttributes.currentHealth <= 0)
         {
             // player dies
@@ -189,7 +241,19 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            yield return new WaitForSeconds(1f);
+            if (burn == true)
+            {
+                dialogueText.text = "The " + enemyAttributes.name + " got damaged by burn!";
+                enemyAttributes.currentHealth -= 5; // the enemy now takes damage
+                enemyUI.SetHP(enemyAttributes.currentHealth);
+                if (enemyAttributes.currentHealth <= 0)
+                {
+                    state = BattleState.WIN;
+                    StartCoroutine(EndBattle());
+                }
+            }
+            counter = false;
+            yield return new WaitForSeconds(2f);
             state = BattleState.PLAYERTURN;
             PlayerTurn();
         }
