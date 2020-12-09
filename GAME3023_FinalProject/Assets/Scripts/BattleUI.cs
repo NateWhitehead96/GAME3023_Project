@@ -13,7 +13,7 @@ public class BattleUI : MonoBehaviour
     public void SetUI(BattleAttributes unit)
     {
         name.text = unit.name;
-        level.text = unit.level;
+        level.text = "Level: " + unit.level;
         healthSlider.maxValue = unit.maxHealth;
         healthSlider.value = unit.currentHealth;
         expSlider.maxValue = unit.maxExp;

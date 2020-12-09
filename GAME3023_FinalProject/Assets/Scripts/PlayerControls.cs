@@ -10,19 +10,39 @@ public class PlayerControls : MonoBehaviour
     public float speed;
     private Animator animator;
 
-    private bool isMoving = false;
+    private BattleAttributes myData;
+    public GameObject pause;
+
+    private bool justExitedBattle;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        myData = GetComponent<BattleAttributes>();
+        justExitedBattle = true;
+
+        if (PlayerPrefs.HasKey("playerLevel"))
+        {
+            myData.SetAttributes("Player", PlayerPrefs.GetString("playerLevel")
+                    , PlayerPrefs.GetInt("playerMaxHP"), PlayerPrefs.GetInt("playerCurrentHP")
+                    , PlayerPrefs.GetInt("playerMaxXP"), PlayerPrefs.GetInt("playerCurrentXP"));
+        }
+
+        // load player position if possible
+        LoadPosition();
     }
 
     // Update is called once per frame
     void Update()
     {
         Movement();
+        if(Input.GetKeyDown("p"))
+        {
+            pause.GetComponent<PauseScript>().SetShow(true);
+            pause.gameObject.SetActive(true);
+        }
     }
 
 
@@ -35,31 +55,37 @@ public class PlayerControls : MonoBehaviour
         Vector2 movementVector = new Vector2(x, y);
         movementVector *= speed;
         rigidbody.velocity = movementVector; // Now using rigidbody for movement
-
-        if (x > 0) // or if(Input.GetKeyUp(KeyCode.D) etc
+        if (pause.GetComponent<PauseScript>().isShowing == false) // if our pause is up then stop player from moving
         {
-            animator.SetInteger("AnimState", 2);
-            animator.SetBool("isWalking", true);
-        }
-        else if (x < 0)
-        {
-            animator.SetInteger("AnimState", 4);
-            animator.SetBool("isWalking", true);
-        }
-        else if (y > 0)
-        {
-            animator.SetInteger("AnimState", 1);
-            animator.SetBool("isWalking", true);
-        }
-        else if (y < 0)
-        {
-            animator.SetInteger("AnimState", 3);
-            animator.SetBool("isWalking", true);
+            speed = 5;
+            justExitedBattle = false; // means when you start moving you can now enter a battle
+            if (x > 0)
+            {
+                animator.SetInteger("AnimState", 2);
+                animator.SetBool("isWalking", true);
+            }
+            else if (x < 0)
+            {
+                animator.SetInteger("AnimState", 4);
+                animator.SetBool("isWalking", true);
+            }
+            else if (y > 0)
+            {
+                animator.SetInteger("AnimState", 1);
+                animator.SetBool("isWalking", true);
+            }
+            else if (y < 0)
+            {
+                animator.SetInteger("AnimState", 3);
+                animator.SetBool("isWalking", true);
+            }
+            else
+            {
+                animator.SetBool("isWalking", false);
+            }
         }
         else
-        {
-            animator.SetBool("isWalking", false);
-        }
+            speed = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -68,10 +94,44 @@ public class PlayerControls : MonoBehaviour
         {
             int encounterChance = Random.Range(0, 3);
             Debug.Log(encounterChance);
-            if(encounterChance == 0)
+            if(encounterChance == 0 && justExitedBattle == false)
             {
+                // Save location
+                SavePosition();
                 SceneManager.LoadScene("BattleScene");
             }
+        }
+
+        if(collision.gameObject.CompareTag("CaveEnter"))
+        {
+            PlayerPrefs.SetFloat("playerX", transform.position.x);
+            PlayerPrefs.SetFloat("playerY", transform.position.y - 1);
+            SceneManager.LoadScene("CaveScene");
+        }
+
+        if(collision.gameObject.CompareTag("CaveExit"))
+        {
+            SceneManager.LoadScene("GameScene");
+        }
+
+        if(collision.gameObject.CompareTag("Boss"))
+        {
+            SceneManager.LoadScene("BossBattle");
+        }
+    }
+
+    private void SavePosition()
+    {
+        PlayerPrefs.SetFloat("playerX", transform.position.x);
+        PlayerPrefs.SetFloat("playerY", transform.position.y);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadPosition()
+    {
+        if(PlayerPrefs.HasKey("playerX") && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameScene"))
+        {
+            transform.position = new Vector3( PlayerPrefs.GetFloat("playerX"), PlayerPrefs.GetFloat("playerY"));
         }
     }
 }

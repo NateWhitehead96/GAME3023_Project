@@ -22,4 +22,9 @@ public class BattleAttributes : MonoBehaviour
         currentExp = _currentexp;
     }
 
+    public void SetHP(int maxHP)
+    {
+        currentHealth = maxHP;
+    }
+
 }

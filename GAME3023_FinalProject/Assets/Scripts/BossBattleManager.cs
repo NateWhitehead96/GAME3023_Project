@@ -4,30 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public enum BattleState
-{
-    START,
-    PLAYERTURN,
-    ENEMYTURN,
-    WIN,
-    LOSE
-}
-public class BattleManager : MonoBehaviour
+
+
+public class BossBattleManager : MonoBehaviour
 {
     public BattleState state;
-
-    public Animator playerEffects;
-    public Animator enemyEffects;
-
     public GameObject player;
-    public GameObject[] enemy;
-    public Transform enemySpawn;
+    public GameObject boss;
 
     BattleAttributes playerAttributes;
-    BattleAttributes enemyAttributes;
+    BattleAttributes bossAttributes;
 
     public BattleUI playerUI;
-    public BattleUI enemyUI;
+    public BattleUI bossUI;
 
     // UI variables
     public Text dialogueText;
@@ -45,18 +34,11 @@ public class BattleManager : MonoBehaviour
     void Start()
     {
         state = BattleState.START;
-        for (int i = 0; i < enemy.Length; i++)
-        {
-            enemy[i].GetComponent<BattleAttributes>().SetHP(enemy[i].GetComponent<BattleAttributes>().maxHealth); // we always reset the HP
-        }
-        playerEffects.gameObject.SetActive(false);
         StartCoroutine(StartBattle());
     }
 
     IEnumerator StartBattle()
     {
-        int battleEncounter = Random.Range(0, 2);
-        Instantiate(enemy[battleEncounter], enemySpawn.position, Quaternion.identity);
         // LOAD ALL DATA
         LoadPlayerData();
         if (PlayerPrefs.HasKey("playerLevel"))
@@ -65,7 +47,7 @@ public class BattleManager : MonoBehaviour
         }
         else
             playerLvl = "1";
-        enemyAttributes = enemy[battleEncounter].GetComponent<BattleAttributes>();
+        bossAttributes = boss.GetComponent<BattleAttributes>();
 
         if (playerAttributes.level == "1") // only show available abilities
         {
@@ -79,11 +61,11 @@ public class BattleManager : MonoBehaviour
             ability4.gameObject.SetActive(false);
         }
 
-        dialogueText.text = "A wild " + enemyAttributes.name + " approaches!";
+        dialogueText.text = "A massive " + bossAttributes.name + " approaches! Careful, this is a boss!";
 
         // add ui elements
         playerUI.SetUI(playerAttributes);
-        enemyUI.SetUI(enemyAttributes);
+        bossUI.SetUI(bossAttributes);
 
         yield return new WaitForSeconds(2f);
 
@@ -94,7 +76,7 @@ public class BattleManager : MonoBehaviour
     void PlayerTurn()
     {
         dialogueText.text = "Choose an ability:";
-        
+
     }
 
     public void ButtonOne() // ability 1
@@ -145,7 +127,7 @@ public class BattleManager : MonoBehaviour
     {
         // Give the player 50% chance to flee the battle
         int fleeChance = Random.Range(0, 10);
-        if(fleeChance > 5)
+        if (fleeChance > 5)
         {
             dialogueText.text = "You fled the battle!";
             // save player hp here
@@ -164,12 +146,12 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator PlayerSlap()
     {
-        enemyAttributes.currentHealth -= 5; // the enemy now takes damage
-        enemyUI.SetHP(enemyAttributes.currentHealth);
+        bossAttributes.currentHealth -= 5; // the enemy now takes damage
+        bossUI.SetHP(bossAttributes.currentHealth);
 
         yield return new WaitForSeconds(2f);
 
-        if (enemyAttributes.currentHealth <= 0)
+        if (bossAttributes.currentHealth <= 0)
         {
             state = BattleState.WIN;
             StartCoroutine(EndBattle());
@@ -195,8 +177,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator Counter()
     {
         yield return new WaitForSeconds(2f);
-        playerEffects.gameObject.SetActive(true);
-        playerEffects.SetBool("Counter", true);
+
         int counterChance = Random.Range(0, 10);
         if (counterChance > 6)
         {
@@ -205,11 +186,11 @@ public class BattleManager : MonoBehaviour
             yield return new WaitForSeconds(2f);
             int damageChance = Random.Range(0, 10);
             if (damageChance > 5)
-            { 
+            {
                 dialogueText.text = "You returned the attack and dealt damage!";
                 yield return new WaitForSeconds(2f);
-                enemyAttributes.currentHealth -= 20; // the enemy now takes damage
-                enemyUI.SetHP(enemyAttributes.currentHealth);
+                bossAttributes.currentHealth -= 20; // the enemy now takes damage
+                bossUI.SetHP(bossAttributes.currentHealth);
             }
         }
         else
@@ -218,7 +199,7 @@ public class BattleManager : MonoBehaviour
             dialogueText.text = "You failed to block the attack!";
             yield return new WaitForSeconds(2f);
         }
-        if (enemyAttributes.currentHealth <= 0)
+        if (bossAttributes.currentHealth <= 0)
         {
             state = BattleState.WIN;
             StartCoroutine(EndBattle());
@@ -229,8 +210,6 @@ public class BattleManager : MonoBehaviour
             //StartCoroutine(EnemyTurn());
             EnemyTurn();
         }
-        playerEffects.SetBool("Counter", false);
-        playerEffects.gameObject.SetActive(false);
         state = BattleState.ENEMYTURN;
         EnemyTurn();
     }
@@ -240,11 +219,12 @@ public class BattleManager : MonoBehaviour
         if (state == BattleState.WIN)
         {
             dialogueText.text = "You defeated the enemy! You gained 25 experience points!";
-            playerAttributes.currentExp += 25 * int.Parse(enemyAttributes.level);
+            PlayerPrefs.SetInt("BossDefeat", 1);
+            playerAttributes.currentExp += 25 * int.Parse(bossAttributes.level);
             playerUI.SetExp(playerAttributes.currentExp);
-            if(playerAttributes.currentExp >= playerAttributes.maxExp)
+            if (playerAttributes.currentExp >= playerAttributes.maxExp)
             {
-                if(playerAttributes.level == "1")
+                if (playerAttributes.level == "1")
                 {
                     Debug.Log("we are leveling up");
                     playerLvl = "2";
@@ -263,17 +243,17 @@ public class BattleManager : MonoBehaviour
                     playerAttributes.currentHealth = playerAttributes.maxHealth;
                     playerAttributes.currentExp = 0;
                 }
-                
+                playerAttributes.currentHealth = playerAttributes.maxHealth;
             }
-            
-            
+
+
         }
         else if (state == BattleState.LOSE)
         {
             dialogueText.text = "You have blacked out!";
             yield return new WaitForSeconds(2f);
-            playerAttributes.currentHealth = 25; // allows the player to slightly regain hp.
             SceneManager.LoadScene("GameScene");
+            //playerAttributes.currentHealth = 25; // allows the player to slightly regain hp.
         }
         // SAVE ALL DATA HERE
         SavePlayerData();
@@ -289,32 +269,27 @@ public class BattleManager : MonoBehaviour
     IEnumerator EnemyAttack()
     {
         // do health changes and check if player is alive or dead
-        dialogueText.text = enemyAttributes.name + " thinks about their next action.";
+        dialogueText.text = bossAttributes.name + " thinks about their next action.";
         yield return new WaitForSeconds(2f);
         if (counter == false)
         {
             int attackRoll = Random.Range(0, 5);
-            Debug.Log(attackRoll);
-            if (attackRoll >= 2)
+            if (playerAttributes.currentHealth >= 50 && attackRoll >= 2)
             {
-                dialogueText.text = enemyAttributes.name + " uses tackle!";
-                playerEffects.SetBool("Slashed", true);
-                playerEffects.gameObject.SetActive(true);
-                playerAttributes.currentHealth -= 5 * int.Parse(enemyAttributes.level); // the player now takes damage
+                dialogueText.text = bossAttributes.name + " uses dragon breath!";
+                playerAttributes.currentHealth -= 15; // the player now takes damage
                 playerUI.SetHP(playerAttributes.currentHealth);
                 yield return new WaitForSeconds(1f);
             }
-            else if (attackRoll == 1)
+            else if (bossAttributes.currentHealth <= 10 && attackRoll >= 1) // try to panic heal
             {
-                dialogueText.text = enemyAttributes.name + " uses slam!";
-                playerEffects.SetBool("Slashed", true);
-                playerEffects.gameObject.SetActive(true);
-                playerAttributes.currentHealth -= 8 * int.Parse(enemyAttributes.level); // the player now takes damage
-                playerUI.SetHP(playerAttributes.currentHealth);
+                dialogueText.text = bossAttributes.name + " uses rest!";
+                bossAttributes.currentHealth += 15; // the boss heals damage
+                bossUI.SetHP(bossAttributes.currentHealth);
                 yield return new WaitForSeconds(1f);
             }
             else
-            dialogueText.text = "The attack missed!";
+                dialogueText.text = "The attack missed!";
         }
         if (playerAttributes.currentHealth <= 0)
         {
@@ -326,17 +301,15 @@ public class BattleManager : MonoBehaviour
         {
             if (burn == true)
             {
-                dialogueText.text = "The " + enemyAttributes.name + " got damaged by burn!";
-                enemyAttributes.currentHealth -= 5; // the enemy now takes damage
-                enemyUI.SetHP(enemyAttributes.currentHealth);
-                if (enemyAttributes.currentHealth <= 0)
+                dialogueText.text = "The " + bossAttributes.name + " got damaged by burn!";
+                bossAttributes.currentHealth -= 5; // the enemy now takes damage
+                bossUI.SetHP(bossAttributes.currentHealth);
+                if (bossAttributes.currentHealth <= 0)
                 {
                     state = BattleState.WIN;
                     StartCoroutine(EndBattle());
                 }
             }
-            playerEffects.SetBool("Slashed", false);
-            playerEffects.gameObject.SetActive(false);
             counter = false;
             yield return new WaitForSeconds(2f);
             state = BattleState.PLAYERTURN;
@@ -372,3 +345,4 @@ public class BattleManager : MonoBehaviour
         }
     }
 }
+

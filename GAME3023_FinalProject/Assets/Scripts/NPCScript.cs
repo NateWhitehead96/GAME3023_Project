@@ -19,7 +19,7 @@ public class NPCScript : MonoBehaviour
         {
             text.fontSize = 30;
             text.gameObject.SetActive(true);
-            text.text = "Hello player! To the left of me here is wild grass to help you level up. Stay away from the cave until you reach a good level!";
+            text.text = "Hello player! To the left of me here is wild grass to help you level up. Stay away from the cave until you reach a good level! You gain new abilities every level!";
         }
     }
 
