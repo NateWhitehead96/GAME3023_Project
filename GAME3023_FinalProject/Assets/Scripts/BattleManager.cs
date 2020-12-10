@@ -41,6 +41,11 @@ public class BattleManager : MonoBehaviour
 
     private string playerLvl;
 
+    // Sound Effects
+    public AudioSource[] sounds;
+    // Battle Effects
+    public ParticleSystem[] abilities;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,13 +54,17 @@ public class BattleManager : MonoBehaviour
         {
             enemy[i].GetComponent<BattleAttributes>().SetHP(enemy[i].GetComponent<BattleAttributes>().maxHealth); // we always reset the HP
         }
+        for (int i = 0; i < abilities.Length; i++)
+        {
+            abilities[i].Stop();
+        }
         playerEffects.gameObject.SetActive(false);
         StartCoroutine(StartBattle());
     }
 
     IEnumerator StartBattle()
     {
-        int battleEncounter = Random.Range(0, 2);
+        int battleEncounter = Random.Range(0, 3);
         Instantiate(enemy[battleEncounter], enemySpawn.position, Quaternion.identity);
         // LOAD ALL DATA
         LoadPlayerData();
@@ -166,7 +175,8 @@ public class BattleManager : MonoBehaviour
     {
         enemyAttributes.currentHealth -= 5; // the enemy now takes damage
         enemyUI.SetHP(enemyAttributes.currentHealth);
-
+        abilities[0].Play();
+        sounds[0].Play(); // play slap sound effect
         yield return new WaitForSeconds(2f);
 
         if (enemyAttributes.currentHealth <= 0)
@@ -185,8 +195,9 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator Burn()
     {
+        abilities[2].Play();
         yield return new WaitForSeconds(2f);
-
+        sounds[2].Play();
         burn = true;
         state = BattleState.ENEMYTURN;
         EnemyTurn();
@@ -195,8 +206,10 @@ public class BattleManager : MonoBehaviour
     IEnumerator Counter()
     {
         yield return new WaitForSeconds(2f);
-        playerEffects.gameObject.SetActive(true);
-        playerEffects.SetBool("Counter", true);
+        sounds[1].Play();
+        abilities[1].Play();
+        //playerEffects.gameObject.SetActive(true);
+        //playerEffects.SetBool("Counter", true);
         int counterChance = Random.Range(0, 10);
         if (counterChance > 6)
         {
@@ -208,7 +221,7 @@ public class BattleManager : MonoBehaviour
             { 
                 dialogueText.text = "You returned the attack and dealt damage!";
                 yield return new WaitForSeconds(2f);
-                enemyAttributes.currentHealth -= 20; // the enemy now takes damage
+                enemyAttributes.currentHealth -= 15; // the enemy now takes damage
                 enemyUI.SetHP(enemyAttributes.currentHealth);
             }
         }
@@ -229,8 +242,8 @@ public class BattleManager : MonoBehaviour
             //StartCoroutine(EnemyTurn());
             EnemyTurn();
         }
-        playerEffects.SetBool("Counter", false);
-        playerEffects.gameObject.SetActive(false);
+        //playerEffects.SetBool("Counter", false);
+        //playerEffects.gameObject.SetActive(false);
         state = BattleState.ENEMYTURN;
         EnemyTurn();
     }
@@ -239,11 +252,12 @@ public class BattleManager : MonoBehaviour
     {
         if (state == BattleState.WIN)
         {
-            dialogueText.text = "You defeated the enemy! You gained 25 experience points!";
+            dialogueText.text = "You defeated the enemy! You gained experience points!";
             playerAttributes.currentExp += 25 * int.Parse(enemyAttributes.level);
             playerUI.SetExp(playerAttributes.currentExp);
             if(playerAttributes.currentExp >= playerAttributes.maxExp)
             {
+                sounds[3].Play();
                 if(playerAttributes.level == "1")
                 {
                     Debug.Log("we are leveling up");
@@ -263,7 +277,7 @@ public class BattleManager : MonoBehaviour
                     playerAttributes.currentHealth = playerAttributes.maxHealth;
                     playerAttributes.currentExp = 0;
                 }
-                
+                playerAttributes.currentHealth = playerAttributes.maxHealth;
             }
             
             
@@ -283,6 +297,10 @@ public class BattleManager : MonoBehaviour
 
     void EnemyTurn()
     {
+        for (int i = 0; i < abilities.Length; i++)
+        {
+            abilities[i].Stop();
+        }
         StartCoroutine(EnemyAttack());
     }
 
@@ -367,7 +385,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            player.GetComponent<BattleAttributes>().SetAttributes("Player", "1", 100, 100, 100, 0); // first time battling
+            player.GetComponent<BattleAttributes>().SetAttributes("Player", "1", 100, 100, 100, 0); // first time battling to be reverted after recording
             playerAttributes = player.GetComponent<BattleAttributes>();
         }
     }

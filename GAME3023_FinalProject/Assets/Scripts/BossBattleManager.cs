@@ -30,10 +30,19 @@ public class BossBattleManager : MonoBehaviour
 
     private string playerLvl;
 
+    // Sound Effects
+    public AudioSource[] sounds;
+    // Battle Effects
+    public ParticleSystem[] abilities;
+
     // Start is called before the first frame update
     void Start()
     {
         state = BattleState.START;
+        for (int i = 0; i < abilities.Length; i++)
+        {
+            abilities[i].Stop();
+        }
         StartCoroutine(StartBattle());
     }
 
@@ -148,7 +157,8 @@ public class BossBattleManager : MonoBehaviour
     {
         bossAttributes.currentHealth -= 5; // the enemy now takes damage
         bossUI.SetHP(bossAttributes.currentHealth);
-
+        sounds[0].Play();
+        abilities[0].Play();
         yield return new WaitForSeconds(2f);
 
         if (bossAttributes.currentHealth <= 0)
@@ -167,8 +177,9 @@ public class BossBattleManager : MonoBehaviour
 
     IEnumerator Burn()
     {
+        abilities[2].Play();
         yield return new WaitForSeconds(2f);
-
+        sounds[2].Play();
         burn = true;
         state = BattleState.ENEMYTURN;
         EnemyTurn();
@@ -177,7 +188,8 @@ public class BossBattleManager : MonoBehaviour
     IEnumerator Counter()
     {
         yield return new WaitForSeconds(2f);
-
+        sounds[1].Play();
+        abilities[1].Play();
         int counterChance = Random.Range(0, 10);
         if (counterChance > 6)
         {
@@ -189,7 +201,7 @@ public class BossBattleManager : MonoBehaviour
             {
                 dialogueText.text = "You returned the attack and dealt damage!";
                 yield return new WaitForSeconds(2f);
-                bossAttributes.currentHealth -= 20; // the enemy now takes damage
+                bossAttributes.currentHealth -= 15; // the enemy now takes damage
                 bossUI.SetHP(bossAttributes.currentHealth);
             }
         }
@@ -218,12 +230,13 @@ public class BossBattleManager : MonoBehaviour
     {
         if (state == BattleState.WIN)
         {
-            dialogueText.text = "You defeated the enemy! You gained 25 experience points!";
+            dialogueText.text = "You defeated the enemy! You gained experience points!";
             PlayerPrefs.SetInt("BossDefeat", 1);
             playerAttributes.currentExp += 25 * int.Parse(bossAttributes.level);
             playerUI.SetExp(playerAttributes.currentExp);
             if (playerAttributes.currentExp >= playerAttributes.maxExp)
             {
+                sounds[3].Play();
                 if (playerAttributes.level == "1")
                 {
                     Debug.Log("we are leveling up");
@@ -263,6 +276,10 @@ public class BossBattleManager : MonoBehaviour
 
     void EnemyTurn()
     {
+        for (int i = 0; i < abilities.Length; i++)
+        {
+            abilities[i].Stop();
+        }
         StartCoroutine(EnemyAttack());
     }
 
@@ -276,8 +293,16 @@ public class BossBattleManager : MonoBehaviour
             int attackRoll = Random.Range(0, 5);
             if (playerAttributes.currentHealth >= 50 && attackRoll >= 2)
             {
+                abilities[3].Play();
                 dialogueText.text = bossAttributes.name + " uses dragon breath!";
                 playerAttributes.currentHealth -= 15; // the player now takes damage
+                playerUI.SetHP(playerAttributes.currentHealth);
+                yield return new WaitForSeconds(1f);
+            }
+            else if(playerAttributes.currentHealth > 0)
+            {
+                dialogueText.text = bossAttributes.name + " uses slam!";
+                playerAttributes.currentHealth -= 5; // the player now takes damage
                 playerUI.SetHP(playerAttributes.currentHealth);
                 yield return new WaitForSeconds(1f);
             }
@@ -312,6 +337,7 @@ public class BossBattleManager : MonoBehaviour
             }
             counter = false;
             yield return new WaitForSeconds(2f);
+            abilities[3].Stop();
             state = BattleState.PLAYERTURN;
             PlayerTurn();
         }

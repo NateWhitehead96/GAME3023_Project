@@ -10,6 +10,8 @@ public class PlayerControls : MonoBehaviour
     public float speed;
     private Animator animator;
 
+    public Animator screenTransitions;
+
     private BattleAttributes myData;
     public GameObject pause;
 
@@ -29,11 +31,16 @@ public class PlayerControls : MonoBehaviour
                     , PlayerPrefs.GetInt("playerMaxHP"), PlayerPrefs.GetInt("playerCurrentHP")
                     , PlayerPrefs.GetInt("playerMaxXP"), PlayerPrefs.GetInt("playerCurrentXP"));
         }
-
+        StartCoroutine(IdleScreen());
         // load player position if possible
         LoadPosition();
     }
 
+    IEnumerator IdleScreen()
+    {
+        yield return new WaitForSeconds(1.5f);
+        screenTransitions.SetInteger("ScreenTransition", 1);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -98,6 +105,7 @@ public class PlayerControls : MonoBehaviour
             {
                 // Save location
                 SavePosition();
+                screenTransitions.SetInteger("ScreenTransition", 2);
                 SceneManager.LoadScene("BattleScene");
             }
         }
@@ -106,16 +114,19 @@ public class PlayerControls : MonoBehaviour
         {
             PlayerPrefs.SetFloat("playerX", transform.position.x);
             PlayerPrefs.SetFloat("playerY", transform.position.y - 1);
+            screenTransitions.SetInteger("ScreenTransition", 2);
             SceneManager.LoadScene("CaveScene");
         }
 
         if(collision.gameObject.CompareTag("CaveExit"))
         {
+            screenTransitions.SetInteger("ScreenTransition", 2);
             SceneManager.LoadScene("GameScene");
         }
 
         if(collision.gameObject.CompareTag("Boss"))
         {
+            screenTransitions.SetInteger("ScreenTransition", 2);
             SceneManager.LoadScene("BossBattle");
         }
     }
